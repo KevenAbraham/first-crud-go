@@ -1,1 +1,13 @@
 GET http://localhost:8080/createUser
+
+
+###
+POST http://localhost:8080/createUser
+Content-Type: application/json
+
+{
+    "email": "keven.abraham@gmail.com",
+    "password": "palmeiras",
+    "name": "Keven",
+    "age": 20
+}
