@@ -1,16 +1,15 @@
 package handler
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/KevenAbraham/first-crud-go/src/configurations/logger"
 	"github.com/KevenAbraham/first-crud-go/src/configurations/validation"
 	"github.com/KevenAbraham/first-crud-go/src/handler/model/request"
 	"github.com/KevenAbraham/first-crud-go/src/model"
+	"github.com/KevenAbraham/first-crud-go/src/model/service"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
 )
 
 var (
@@ -31,9 +30,15 @@ func CreateUser(ctx *gin.Context) {
 	}
 
 	domain := model.NewUserDomain(
-		userRequest.Email, userRequest.Password, userRequest.Name, userRequest.Age,
+		userRequest.Email,
+		userRequest.Password, 
+		userRequest.Name, 
+		userRequest.Age,
 	)
-	if err := domain.CreateUser(); err != nil {
+
+	service := service.NewUserDomainService()
+
+	if err := service.CreateUser(domain); err != nil {
 		ctx.JSON(err.Code, err)
 		return
 	}

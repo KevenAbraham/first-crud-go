@@ -1,18 +1,14 @@
-package model
+package service
 
 import (
-	"fmt"
-
 	"github.com/KevenAbraham/first-crud-go/src/configurations/error_mapping"
+	"github.com/KevenAbraham/first-crud-go/src/model"
 	"github.com/bytedance/gopkg/util/logger"
 	"go.uber.org/zap"
 )
 
-func (ud *UserDomain) FindUser() *error_mapping.RestErr {
+func (ud *userDomainService) FindUser(string) (*model.UserDomainInterface, *error_mapping.RestErr) {
 	logger.Info("Init findUser model", zap.String("journey", "findUser"))
 
-	ud.EncryptPassword()
-
-	fmt.Println()
-	return nil
+	return nil, nil
 }
