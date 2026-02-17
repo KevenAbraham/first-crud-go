@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/KevenAbraham/first-crud-go/src/configurations/logger"
@@ -10,7 +9,6 @@ import (
 	"github.com/KevenAbraham/first-crud-go/src/model"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
 )
 
 var (
