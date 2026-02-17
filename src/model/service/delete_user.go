@@ -1,18 +1,13 @@
-package model
+package service
 
 import (
-	"fmt"
-
 	"github.com/KevenAbraham/first-crud-go/src/configurations/error_mapping"
 	"github.com/bytedance/gopkg/util/logger"
 	"go.uber.org/zap"
 )
 
-func (ud *UserDomain) DeleteUser() *error_mapping.RestErr {
+func (ud *userDomainService) DeleteUser(string) *error_mapping.RestErr {
 	logger.Info("Init deleteUser model", zap.String("journey", "deleteUser"))
 
-	ud.EncryptPassword()
-
-	fmt.Println()
 	return nil
 }
